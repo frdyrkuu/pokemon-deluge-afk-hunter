@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       width: 260px;
@@ -51,13 +57,22 @@
     }
 
     .dot {
-      width: 7px; height: 7px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #ccc;
       flex-shrink: 0;
     }
-    .dot.active  { background: #22c55e; box-shadow: 0 0 0 2px #bbf7d0; }
-    .dot.stopped { background: #ef4444; box-shadow: 0 0 0 2px #fecaca; }
+
+    .dot.active {
+      background: #22c55e;
+      box-shadow: 0 0 0 2px #bbf7d0;
+    }
+
+    .dot.stopped {
+      background: #ef4444;
+      box-shadow: 0 0 0 2px #fecaca;
+    }
 
     .section-label {
       font-size: 9px;
@@ -84,7 +99,10 @@
       border: none;
       font-family: 'Inter', sans-serif;
     }
-    .tiny-link:hover { color: #555; }
+
+    .tiny-link:hover {
+      color: #555;
+    }
 
     .filters {
       display: flex;
@@ -146,23 +164,32 @@
       transition: transform 0.08s;
     }
 
-    .btn:active { transform: scale(0.96); }
+    .btn:active {
+      transform: scale(0.96);
+    }
 
     .btn-start {
       background: #fbbf24;
       color: #451a03;
       border-bottom: 3px solid #d97706;
     }
-    .btn-start:hover { background: #fcd34d; }
+
+    .btn-start:hover {
+      background: #fcd34d;
+    }
 
     .btn-stop {
       background: #ef4444;
       color: #fff;
       border-bottom: 3px solid #b91c1c;
     }
-    .btn-stop:hover { background: #f87171; }
+
+    .btn-stop:hover {
+      background: #f87171;
+    }
   </style>
 </head>
+
 <body>
 
   <div class="header">
@@ -180,14 +207,14 @@
     <button class="tiny-link" id="toggleAll">Select all</button>
   </div>
   <div class="filters" id="typeFilters">
-    <button class="filter-chip active" data-type="shiny">Shiny</button>
-    <button class="filter-chip active" data-type="metallic">Metallic</button>
-    <button class="filter-chip active" data-type="ghostly">Ghostly</button>
-    <button class="filter-chip active" data-type="dark">Dark</button>
-    <button class="filter-chip active" data-type="shadow">Shadow</button>
-    <button class="filter-chip active" data-type="mirage">Mirage</button>
-    <button class="filter-chip active" data-type="chrome">Chrome</button>
-    <button class="filter-chip active" data-type="negative">Negative</button>
+    <button class="filter-chip" data-type="shiny">Shiny</button>
+    <button class="filter-chip" data-type="metallic">Metallic</button>
+    <button class="filter-chip" data-type="ghostly">Ghostly</button>
+    <button class="filter-chip" data-type="dark">Dark</button>
+    <button class="filter-chip" data-type="shadow">Shadow</button>
+    <button class="filter-chip" data-type="mirage">Mirage</button>
+    <button class="filter-chip" data-type="chrome">Chrome</button>
+    <button class="filter-chip" data-type="negative">Negative</button>
     <button class="filter-chip active" data-type="retro">Retro</button>
   </div>
 
@@ -208,4 +235,5 @@
 
   <script src="popup.js"></script>
 </body>
+
 </html>

@@ -3,15 +3,29 @@ let activeFilters = [];
 
 const legendarySound = new Audio(chrome.runtime.getURL("pokemon_battle.mp3"));
 
-// 🛑 STOP via ESC
+/*
+ * ╔══════════════════════════════════════╗
+ * ║                                      ║
+ * ║             STOP via ESC             ║
+ * ║                                      ║
+ * ╚══════════════════════════════════════╝
+ */
+
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     running = false;
-    console.log("🛑 Stopped manually");
+    console.log(" Stopped manually");
   }
 });
 
-// 🚶 movement
+/*
+ * ╔══════════════════════════════════════╗
+ * ║                                      ║
+ * ║               movement               ║
+ * ║                                      ║
+ * ╚══════════════════════════════════════╝
+ */
+
 function getValidMove() {
   const moves = document.querySelectorAll('[data-dir]');
   const valid = Array.from(moves).filter(el => {
@@ -22,7 +36,14 @@ function getValidMove() {
   return valid[Math.floor(Math.random() * valid.length)];
 }
 
-// 🌟 DETECT by rarity
+/*
+ * ╔══════════════════════════════════════╗
+ * ║                                      ║
+ * ║           DETECT by rarity           ║
+ * ║                                      ║
+ * ╚══════════════════════════════════════╝
+ */
+
 function isRarityMatch() {
   const mapContext = document.querySelector("#mapcontext");
   if (!mapContext) return false;
@@ -32,7 +53,14 @@ function isRarityMatch() {
   return false;
 }
 
-// 🎨 DETECT by pokemon type prefix
+/*
+ * ╔══════════════════════════════════════╗
+ * ║                                      ║
+ * ║    DETECT by pokemon type prefix     ║
+ * ║                                      ║
+ * ╚══════════════════════════════════════╝
+ */
+
 function isTypeMatch() {
   const dexy = document.querySelector("#dexy");
   if (!dexy) return false;
@@ -41,7 +69,14 @@ function isTypeMatch() {
   return typeFilters.some(type => text.includes(type));
 }
 
-// 🎯 detect ANY encounter
+/*
+ * ╔══════════════════════════════════════╗
+ * ║                                      ║
+ * ║         detect ANY encounter         ║
+ * ║                                      ║
+ * ╚══════════════════════════════════════╝
+ */
+
 function isEncounter() {
   return !!document.querySelector("#hp");
 }
@@ -59,10 +94,10 @@ async function autoHunt() {
         running = false;
         legendarySound.play();
         const label = rarityMatch || "Type Match";
-        console.log(`🌟 Stopped: ${label} detected`);
+        console.log(`Stopped: ${label} detected`);
         break;
       } else {
-        console.log("❌ No match, continue...");
+        console.log("No match, continue...");
       }
     }
 
@@ -72,12 +107,12 @@ async function autoHunt() {
     await new Promise(r => setTimeout(r, 600));
   }
 
-  console.log("⛔ Loop Ended");
+  console.log("Loop Ended");
 }
 
 function stopHunt() {
   running = false;
-  console.log("🛑 Stopped via popup");
+  console.log("Stopped via popup");
 }
 
 chrome.runtime.onMessage.addListener((msg) => {
