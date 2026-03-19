@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Legendary Hunter",
+  "version": "1.0",
+  "description": "Auto hunts for legendary encounters",
+  "permissions": ["activeTab", "scripting"],
+  "web_accessible_resources": [
+    {
+      "resources": ["pokemon_battle.mp3"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
